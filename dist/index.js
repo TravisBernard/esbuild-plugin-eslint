@@ -1,8 +1,10 @@
-import { ESLint } from "eslint";
-export default ({ filter = /\.(?:jsx?|tsx?|vue|svelte)$/, throwOnWarning = false, throwOnError = false, ...eslintOptions } = {}) => ({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const eslint_1 = require("eslint");
+exports.default = ({ filter = /\.(?:jsx?|tsx?|vue|svelte)$/, throwOnWarning = false, throwOnError = false, ...eslintOptions } = {}) => ({
     name: "eslint",
     setup: ({ onLoad, onEnd }) => {
-        const eslint = new ESLint(eslintOptions);
+        const eslint = new eslint_1.ESLint(eslintOptions);
         const filesToLint = [];
         onLoad({ filter }, ({ path }) => {
             if (!path.includes("node_modules")) {
@@ -17,7 +19,7 @@ export default ({ filter = /\.(?:jsx?|tsx?|vue|svelte)$/, throwOnWarning = false
             const warnings = results.reduce((count, result) => count + result.warningCount, 0);
             const errors = results.reduce((count, result) => count + result.errorCount, 0);
             if (eslintOptions.fix) {
-                await ESLint.outputFixes(results);
+                await eslint_1.ESLint.outputFixes(results);
             }
             if (output.length > 0) {
                 console.log(output);
