@@ -2,7 +2,6 @@
   "name": "esbuild-plugin-eslint",
   "version": "0.3.6",
   "description": "Lint your esbuild bundles with ESLint. 🧐",
-  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/robinloeffel/esbuild-plugin-eslint.git",
